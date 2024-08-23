@@ -1,6 +1,8 @@
-﻿namespace Gameplay.Entities.Player
+﻿using UnityEngine;
+
+namespace Gameplay.Entities.Player
 {
-    internal class PlayerModel
+    internal class PlayerModel : MonoBehaviour
     {
     }
 }
