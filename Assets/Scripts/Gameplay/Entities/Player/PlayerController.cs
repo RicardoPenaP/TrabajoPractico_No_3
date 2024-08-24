@@ -13,7 +13,7 @@ namespace Gameplay.Entities.Player
         [SerializeField] private PlayerView _playerView = null;
         [SerializeField] private PlayerModel _playerModel = null;
 
-        private List<IDisposable> _disposableObjects = null;
+        private List<IDisposable> _disposableObjects = new List<IDisposable>();
         #endregion
 
         #region Unity Methods

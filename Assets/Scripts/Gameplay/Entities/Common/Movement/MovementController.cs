@@ -44,12 +44,12 @@ namespace Gameplay.Entities.Common.Movement
         {
             if (rawMovementInput.Equals(Vector2.zero))
             {
-                _movementModel.SetMovementDirection(rawMovementInput.normalized);
-            }
-            else
-            {
                 _movementModel.StopMovement();
+                return;
+                
             }
+
+            _movementModel.SetMovementDirection(rawMovementInput.normalized);
         }
         #endregion
     }
