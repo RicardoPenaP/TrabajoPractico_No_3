@@ -25,7 +25,7 @@ namespace Gameplay.Entities.Player
         private void OnDestroy()
         {
             Deinit();
-        }
+        }               
         #endregion
 
         #region Private Methods

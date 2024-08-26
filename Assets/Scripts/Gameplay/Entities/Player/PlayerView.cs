@@ -14,7 +14,7 @@ namespace Gameplay.Entities.Player
         #endregion
 
         #region Events
-        public event Action<Vector2> OnMovementInputUpdate;
+        public event Action<Vector2> OnMovementInputUpdated;
         #endregion
 
         #region Unity Methods
@@ -38,7 +38,7 @@ namespace Gameplay.Entities.Player
                 rawInput.y += -1;
             }
 
-            OnMovementInputUpdate?.Invoke(rawInput);
+            OnMovementInputUpdated?.Invoke(rawInput);
         }
         #endregion
     }

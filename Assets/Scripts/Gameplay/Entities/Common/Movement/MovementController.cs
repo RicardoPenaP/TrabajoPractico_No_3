@@ -30,12 +30,12 @@ namespace Gameplay.Entities.Common.Movement
         #region Private Methods
         private void Init()
         {
-            _movementView.OnMovementInputUpdate += MovementView_OnMovementInputUpdate;
+            _movementView.OnMovementInputUpdated += MovementView_OnMovementInputUpdate;
         }
 
         private void Deinit()
         {
-            _movementView.OnMovementInputUpdate -= MovementView_OnMovementInputUpdate;
+            _movementView.OnMovementInputUpdated -= MovementView_OnMovementInputUpdate;
         }
         #endregion
 

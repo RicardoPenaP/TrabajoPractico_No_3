@@ -5,6 +5,6 @@ namespace Gameplay.Entities.Common.Movement
 {
     public interface IMovementView
     {
-        public event Action<Vector2> OnMovementInputUpdate;
+        public event Action<Vector2> OnMovementInputUpdated;
     }
 }
