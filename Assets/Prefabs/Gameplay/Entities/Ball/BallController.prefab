@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1864554412533310928}
+  - component: {fileID: 4748359866978214325}
   m_Layer: 0
   m_Name: BallView
   m_TagString: Untagged
@@ -32,6 +33,18 @@ Transform:
   - {fileID: 5625812607310732882}
   m_Father: {fileID: 3070813687641093394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4748359866978214325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1981984684786907843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fcfed3b384c26a4ba6ff879b4e96719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4653029960705883759
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3070813687641093394}
+  - component: {fileID: 709648049677539761}
   m_Layer: 0
   m_Name: BallController
   m_TagString: Untagged
@@ -149,6 +163,20 @@ Transform:
   - {fileID: 5666483747955333395}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &709648049677539761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6193637011313935775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d24aa8e309e8ee4697d2d787c25f17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ballView: {fileID: 4748359866978214325}
+  _ballModel: {fileID: 2444865463600780858}
 --- !u!1 &8005846838215818890
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,6 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5666483747955333395}
+  - component: {fileID: 2444865463600780858}
   m_Layer: 0
   m_Name: BallModel
   m_TagString: Untagged
@@ -180,3 +209,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3070813687641093394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2444865463600780858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8005846838215818890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d11c6d9d25fe124ba8292733d3aae2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
