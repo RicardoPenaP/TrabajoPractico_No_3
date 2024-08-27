@@ -1,6 +1,4 @@
-﻿using Gameplay.Entities.Common.Movement;
-using System;
-using System.Collections.Generic;
+﻿using Gameplay.Entities.Player;
 using UnityEngine;
 
 namespace Gameplay.Entities.Ball
@@ -13,15 +11,12 @@ namespace Gameplay.Entities.Ball
         [SerializeField] private BallView _ballView = null;
         [SerializeField] private BallModel _ballModel = null;
         #endregion
-
-        #region Variables
-        private List<IDisposable> _disposableObjects = new List<IDisposable>();
-        private MovementController _movementController = null;
-        #endregion
-
+        
         #region Unity Methods
         private void Awake()
         {
+            //Temp Code
+            _ballModel.SetMovementDirection(Random.insideUnitCircle.normalized);
             Init();
         }
 
@@ -31,27 +26,40 @@ namespace Gameplay.Entities.Ball
         }
         #endregion
 
+        #region Callbacks
+        private void BallView_OnBallColides(Collider2D collider) => HandleBallCollision(collider);
+        #endregion
+
         #region Private Methods
         private void Init()
         {
-            _movementController = new MovementController(_ballView, _ballModel);
-
-            _disposableObjects.Add(_movementController);
+            _ballView.OnBallCollides += BallView_OnBallColides;
         }
 
         private void Deinit()
         {
-            if (_disposableObjects is null || _disposableObjects.Count.Equals(0))
+            _ballView.OnBallCollides -= BallView_OnBallColides;
+        }
+
+        private void HandleBallCollision(Collider2D collider)
+        {
+            if (collider.attachedRigidbody.TryGetComponent(out PlayerController playerController))
             {
-                return;
+                _ballModel.InvertMovementAxis("X");
             }
 
-            foreach (IDisposable disposableObject in _disposableObjects)
+            switch (collider.tag)
             {
-                disposableObject.Dispose();
+                case "VerticalWall":
+                    //_ballModel.StopMovement();
+                    _ballModel.InvertMovementAxis("X");
+                    break;
+                case "HorizontalWall":
+                    _ballModel.InvertMovementAxis("Y");
+                    break;
+                default:
+                    break;
             }
-
-            _disposableObjects.Clear();
         }
         #endregion
     }

@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7484756959124606965, guid: 240413e928f6d9d419c1758e110d5ccf, type: 3}
       propertyPath: m_Name
-      value: VerticalWall Variant
+      value: VerticalWallVariant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7484756959124606965, guid: 240413e928f6d9d419c1758e110d5ccf, type: 3}
+      propertyPath: m_TagString
+      value: VerticalWall
       objectReference: {fileID: 0}
     - target: {fileID: 8501591617052827283, guid: 240413e928f6d9d419c1758e110d5ccf, type: 3}
       propertyPath: m_LocalScale.y

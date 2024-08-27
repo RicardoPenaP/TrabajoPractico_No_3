@@ -1,11 +1,10 @@
 ﻿using Gameplay.Entities.Common.Collisions;
-using Gameplay.Entities.Common.Movement;
 using System;
 using UnityEngine;
 
 namespace Gameplay.Entities.Ball
 {
-    public class BallView : MonoBehaviour, IMovementView
+    public class BallView : MonoBehaviour
     {
         #region Editor Variables
         [Header("Ball View")]
@@ -13,8 +12,7 @@ namespace Gameplay.Entities.Ball
         [SerializeField] private CollisionHandler _collisionHandler = null;
         #endregion
 
-        #region Events
-        public event Action<Vector2> OnMovementInputUpdated = delegate { };
+        #region Events        
         public event Action<Collider2D> OnBallCollides = delegate { };
         #endregion
 

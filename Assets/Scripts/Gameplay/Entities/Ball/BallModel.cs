@@ -3,16 +3,57 @@ using UnityEngine;
 
 namespace Gameplay.Entities.Ball
 {
-    public class BallModel : MonoBehaviour, IMovementModel
+    public class BallModel : MonoBehaviour
     {
+        #region Editor Variables
+        [Header("Ball Model")]
+        [Header("References")]
+        [SerializeField] private Rigidbody2D _rigidbody = null;
+
+        [Header("Movement Settings")]
+        [SerializeField] private MovementSettings _movementSettings = null;
+        #endregion
+
+        #region Variables
+        private float _movementSpeedMultiplier = 1f;
+        #endregion
+
+        #region Properties
+
+        #endregion
+
+        #region Public Methods
         public void SetMovementDirection(Vector2 normalizedMovementDirection)
         {
-            throw new System.NotImplementedException();
+            _rigidbody.velocity = normalizedMovementDirection * _movementSettings.baseMovementSpeed * _movementSpeedMultiplier;
         }
 
         public void StopMovement()
         {
-            throw new System.NotImplementedException();
+            SetMovementDirection(Vector2.zero);
         }
+
+        public void InvertMovementAxis(string axis)
+        {
+            string toUpperAxis = axis.ToUpper();
+            Vector2 newMovementDirection = _rigidbody.velocity;
+            _rigidbody.Sleep();
+            switch (axis)
+            {
+                case "X":
+                    newMovementDirection.x = newMovementDirection.x  * - 1; 
+                    break;
+                case "Y":
+                    newMovementDirection.y = newMovementDirection.y * - 1;
+                    break;
+                default:
+                    Debug.Log($"Not suported axis name: {axis}");
+                    break;
+            }
+            _rigidbody.velocity = newMovementDirection;
+        }
+        #endregion
+
+        
     }
 }
