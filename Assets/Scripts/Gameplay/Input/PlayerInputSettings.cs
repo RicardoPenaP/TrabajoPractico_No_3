@@ -6,7 +6,7 @@ namespace Gameplay.Input
     public class PlayerInputSettings : ScriptableObject
     {
         #region Editor Variables
-        [Header("Input Settings")]
+        [Header("Player Input Settings")]
         [SerializeField] private KeyCode _upKey = KeyCode.None;
         public KeyCode upKey => _upKey;
 
