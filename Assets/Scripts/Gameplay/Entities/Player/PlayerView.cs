@@ -1,6 +1,6 @@
 ﻿using System;
 using Gameplay.Entities.Common.Movement;
-using Gameplay.Input;
+using Gameplay.InputSettings;
 using UnityEngine;
 
 namespace Gameplay.Entities.Player

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Gameplay.Input
+namespace Gameplay.InputSettings
 {
-    [CreateAssetMenu(fileName = "NewInputSettings", menuName = "Gameplay/Input/Input Settings")]
+    [CreateAssetMenu(fileName = "NewPlayerInputSettings", menuName = "Gameplay/Input/Player Input Settings")]
     public class PlayerInputSettings : ScriptableObject
     {
         #region Editor Variables
@@ -13,7 +13,6 @@ namespace Gameplay.Input
         [SerializeField] private KeyCode _downKey = KeyCode.None;
         public KeyCode downKey => _downKey;
         #endregion
-
     }
 }
 

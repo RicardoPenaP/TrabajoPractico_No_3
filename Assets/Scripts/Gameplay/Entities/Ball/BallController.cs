@@ -68,11 +68,11 @@ namespace Gameplay.Entities.Ball
             switch (collider.tag)
             {
                 case "VerticalWall":
-                    _ballModel.InvertMovementAxis("X");
+                    GoalZone collidedGoalZone = collider.attachedRigidbody.GetComponent<GoalZone>();
+                    OnBallCollidesWithGoalZone?.Invoke(collidedGoalZone);                   
                     break;
                 case "HorizontalWall":
-                    GoalZone collidedGoalZone = collider.attachedRigidbody.GetComponent<GoalZone>();
-                    OnBallCollidesWithGoalZone?.Invoke(collidedGoalZone);                    
+                    _ballModel.InvertMovementAxis("Y");
                     break;
                 default:
                     break;

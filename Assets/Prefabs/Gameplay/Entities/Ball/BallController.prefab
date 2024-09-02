@@ -299,5 +299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d11c6d9d25fe124ba8292733d3aae2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _targetTransform: {fileID: 3070813687641093394}
   _rigidbody: {fileID: 7963381749486557391}
   _movementSettings: {fileID: 11400000, guid: d242f05ae572f3e4bb1f3dd8b0ac564d, type: 2}
