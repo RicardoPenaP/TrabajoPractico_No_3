@@ -1,4 +1,6 @@
 ﻿using Gameplay.Entities.Player;
+using Gameplay.Envirorment;
+using System;
 using UnityEngine;
 
 namespace Gameplay.Entities.Ball
@@ -11,18 +13,33 @@ namespace Gameplay.Entities.Ball
         [SerializeField] private BallView _ballView = null;
         [SerializeField] private BallModel _ballModel = null;
         #endregion
-        
+
+        #region Events
+        public event Action<GoalZone> OnBallCollidesWithGoalZone = delegate { };
+        #endregion
+
         #region Unity Methods
         private void Awake()
         {
-            //Temp Code
-            _ballModel.SetMovementDirection(Random.insideUnitCircle.normalized);
             Init();
         }
 
         private void OnDestroy()
         {
             Deinit();
+        }
+        #endregion
+
+        #region Public Methods
+        public void StartBallMovement() => _ballModel.SetMovementDirection(UnityEngine.Random.insideUnitCircle.normalized);
+
+        public void SetBallPosition(Vector3 newPosition, bool sleepRigidbody = true)
+        {
+            if (sleepRigidbody)
+            {
+                _ballModel.SleepRigidbody();
+            }
+            _ballModel.SetBallPosition(newPosition);
         }
         #endregion
 
@@ -51,11 +68,11 @@ namespace Gameplay.Entities.Ball
             switch (collider.tag)
             {
                 case "VerticalWall":
-                    //_ballModel.StopMovement();
                     _ballModel.InvertMovementAxis("X");
                     break;
                 case "HorizontalWall":
-                    _ballModel.InvertMovementAxis("Y");
+                    GoalZone collidedGoalZone = collider.attachedRigidbody.GetComponent<GoalZone>();
+                    OnBallCollidesWithGoalZone?.Invoke(collidedGoalZone);                    
                     break;
                 default:
                     break;

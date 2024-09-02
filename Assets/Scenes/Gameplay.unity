@@ -568,6 +568,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1030413942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030413943}
+  m_Layer: 0
+  m_Name: BallStartPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1030413943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030413942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1820350088}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1313878253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -620,11 +651,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: VerticalWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8129569116555650743, guid: 9624496eb08d95b4f88420c097541398, type: 3}
+      propertyPath: _zoneId
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9624496eb08d95b4f88420c097541398, type: 3}
+--- !u!114 &1401689975 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 709648049677539761, guid: 2afa349de5e4c0e419caa502abd1c945, type: 3}
+  m_PrefabInstance: {fileID: 804136209676876039}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d24aa8e309e8ee4697d2d787c25f17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1501948493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 344024192421004188, guid: 9624496eb08d95b4f88420c097541398, type: 3}
@@ -691,6 +737,53 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 717b4f54e43bd6146a335a0d15883bb2, type: 3}
+--- !u!1 &1820350087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1820350088}
+  - component: {fileID: 1820350089}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1820350088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820350087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1030413943}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1820350089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820350087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 483d6d34b9be8a24599e08b8f8eb9b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ball: {fileID: 1401689975}
+  _ballStartPos: {fileID: 1030413943}
 --- !u!1 &1889287803
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VerticalWall
       objectReference: {fileID: 0}
+    - target: {fileID: 8129569116555650743, guid: 9624496eb08d95b4f88420c097541398, type: 3}
+      propertyPath: _zoneId
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -917,12 +1014,13 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1006300174}
+  - {fileID: 1820350088}
+  - {fileID: 1889287804}
+  - {fileID: 619394802}
+  - {fileID: 977891965}
   - {fileID: 232274483}
   - {fileID: 519420032}
   - {fileID: 8734644524112696269}
   - {fileID: 1656443615}
-  - {fileID: 1006300174}
-  - {fileID: 1889287804}
-  - {fileID: 977891965}
-  - {fileID: 619394802}
   - {fileID: 804136209676876039}

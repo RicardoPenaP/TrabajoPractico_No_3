@@ -41,10 +41,10 @@ namespace Gameplay.Entities.Ball
             switch (axis)
             {
                 case "X":
-                    newMovementDirection.x = newMovementDirection.x  * - 1; 
+                    newMovementDirection.x = newMovementDirection.x * -1;
                     break;
                 case "Y":
-                    newMovementDirection.y = newMovementDirection.y * - 1;
+                    newMovementDirection.y = newMovementDirection.y * -1;
                     break;
                 default:
                     Debug.Log($"Not suported axis name: {axis}");
@@ -52,8 +52,12 @@ namespace Gameplay.Entities.Ball
             }
             _rigidbody.velocity = newMovementDirection;
         }
+
+        public void SetBallPosition(Vector3 newPosition) => _rigidbody.MovePosition(newPosition);
+
+        public void SleepRigidbody() => _rigidbody.Sleep();
         #endregion
 
-        
+
     }
 }
