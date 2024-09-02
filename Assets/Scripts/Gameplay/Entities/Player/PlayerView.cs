@@ -10,7 +10,7 @@ namespace Gameplay.Entities.Player
         #region Editor Variables
         [Header("Player View")]
         [Header("Input settings")]
-        [SerializeField] private InputSettings _inputSettings = null;
+        [SerializeField] private PlayerInputSettings _inputSettings = null;
         #endregion
 
         #region Events

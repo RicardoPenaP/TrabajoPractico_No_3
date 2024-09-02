@@ -10,6 +10,8 @@ namespace Gameplay.Systems.Game
         #region Editor Variables
         [Header("Game Controller")]
         [Header("References")]
+        [SerializeField] private GameView _gameView = null;
+        [SerializeField] private GameModel gameModel = null;        
         [SerializeField] private BallController _ball = null;
         [SerializeField] private Transform _ballStartPos = null;
         #endregion

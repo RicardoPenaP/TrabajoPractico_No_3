@@ -3,7 +3,7 @@
 namespace Gameplay.Input
 {
     [CreateAssetMenu(fileName = "NewInputSettings", menuName = "Gameplay/Input/Input Settings")]
-    public class InputSettings : ScriptableObject
+    public class PlayerInputSettings : ScriptableObject
     {
         #region Editor Variables
         [Header("Input Settings")]
