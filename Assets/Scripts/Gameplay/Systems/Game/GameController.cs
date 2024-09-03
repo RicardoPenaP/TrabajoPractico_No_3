@@ -1,8 +1,7 @@
-using Gameplay.InputSettings;
 using Gameplay.Entities.Ball;
 using Gameplay.Entities.Player;
 using Gameplay.Envirorment;
-using System;
+using Gameplay.InputSettings;
 using UnityEngine;
 
 namespace Gameplay.Systems.Game
@@ -45,12 +44,14 @@ namespace Gameplay.Systems.Game
 
         private void GameModel_OnGameStatusChange(GameStatus newStatus) => HandleGameStatusChange(newStatus);
 
+        private void GameModel_OnScoreChange(PlayerId playerId, int score) => HandleScoreChange(playerId, score);
         #endregion
 
         #region Private Methods
         private void Init()
         {
             _gameModel.OnGameStatusChange += GameModel_OnGameStatusChange;
+            _gameModel.OnScoreChange += GameModel_OnScoreChange;
 
             _ball.OnBallCollidesWithGoalZone += CurrentBall_OnBallCollidesWithGoalZone;
         }
@@ -75,12 +76,24 @@ namespace Gameplay.Systems.Game
         {
             _ball.SetBallPosition(_ballStartPos.position);
             _gameModel.SetGameStatus(GameStatus.Stopped);
-            // Logic for giving points and winning condition check 
+
+            PlayerId goalMaker = zoneId == PlayerId.Player1 ? PlayerId.Player2 : PlayerId.Player1;
+            _gameModel.AddScore(goalMaker);
+            
         }
 
         private void HandleGameStatusChange(GameStatus newStatus)
         {
             
+        }
+
+        private void HandleScoreChange(PlayerId playerId, int score)
+        {
+            // Logic for giving points and winning condition check 
+            if (score >= _gameModel.maxScore)
+            {
+                Debug.Log($"{playerId} wins!");
+            }
         }
 
 
