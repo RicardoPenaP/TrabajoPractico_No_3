@@ -8,7 +8,6 @@ namespace Gameplay.Entities.Ball
         #region Editor Variables
         [Header("Ball Model")]
         [Header("References")]
-        [SerializeField] private Transform _targetTransform = null;
         [SerializeField] private Rigidbody2D _rigidbody = null;
 
         [Header("Movement Settings")]
@@ -54,7 +53,7 @@ namespace Gameplay.Entities.Ball
             _rigidbody.velocity = newMovementDirection;
         }
 
-        public void SetBallPosition(Vector3 newPosition) => _targetTransform.position = newPosition;
+        public void SetBallPosition(Vector3 newPosition) => _rigidbody.position = newPosition;  // Temp code: use rb move method and disable the view
 
         public void SleepRigidbody() => _rigidbody.Sleep();
         #endregion
