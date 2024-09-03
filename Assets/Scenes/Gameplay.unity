@@ -284,7 +284,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -440,12 +440,16 @@ PrefabInstance:
       value: HorizontalWallVariant
       objectReference: {fileID: 0}
     - target: {fileID: 9122903710530624298, guid: a3d739bf72f65134b8eb4129f79638e9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9122903710530624298, guid: a3d739bf72f65134b8eb4129f79638e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9122903710530624298, guid: a3d739bf72f65134b8eb4129f79638e9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.5
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 9122903710530624298, guid: a3d739bf72f65134b8eb4129f79638e9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -502,7 +506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9122903710530624298, guid: a3d739bf72f65134b8eb4129f79638e9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.5
+      value: -5.25
       objectReference: {fileID: 0}
     - target: {fileID: 9122903710530624298, guid: a3d739bf72f65134b8eb4129f79638e9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -653,7 +657,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 344024192421004188, guid: 9624496eb08d95b4f88420c097541398, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.25
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 344024192421004188, guid: 9624496eb08d95b4f88420c097541398, type: 3}
       propertyPath: m_LocalPosition.y
@@ -990,7 +994,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 344024192421004188, guid: 9624496eb08d95b4f88420c097541398, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.25
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: 344024192421004188, guid: 9624496eb08d95b4f88420c097541398, type: 3}
       propertyPath: m_LocalPosition.y
