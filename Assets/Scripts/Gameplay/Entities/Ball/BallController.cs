@@ -31,7 +31,15 @@ namespace Gameplay.Entities.Ball
         #endregion
 
         #region Public Methods
-        public void StartBallMovement() => _ballModel.SetMovementDirection(UnityEngine.Random.insideUnitCircle.normalized);
+        public void StartBallMovement()
+        {
+            Vector2 randomDir = Vector2.zero;
+            do
+            {
+                randomDir = UnityEngine.Random.insideUnitCircle.normalized;
+            } while (Math.Abs(randomDir.x) < 0.5);
+            _ballModel.SetMovementDirection(randomDir);
+        }
 
         public void SetBallPosition(Vector3 newPosition, bool sleepRigidbody = true)
         {
