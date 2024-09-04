@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Gameplay.Entities.Player;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -50,6 +51,12 @@ namespace Gameplay.Systems.Game
                 StopCoroutine(_startTextBlinkingCoroutine);
                 _startText.gameObject.SetActive(false);
             }
+        }
+
+        public void SetWinnerText(PlayerId winner)
+        {
+            _winnerText.text = $"Player {(int)winner} wins";
+            _winnerText.gameObject.SetActive(true);
         }
         #endregion
 

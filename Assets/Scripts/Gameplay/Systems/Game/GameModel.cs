@@ -18,8 +18,8 @@ namespace Gameplay.Systems.Game
 
         private Dictionary<PlayerId, int> _scoreDictionary = new Dictionary<PlayerId, int>();
 
-        private int _maxScore = 5;
-        public int maxScore => _maxScore;
+        private int _maxScore = 3;
+        public int maxScore => _maxScore;        
         #endregion
 
         #region Events
@@ -56,6 +56,25 @@ namespace Gameplay.Systems.Game
             _scoreDictionary[playerId] += Mathf.Abs(points);
             Debug.Log($"{playerId} => { _scoreDictionary[playerId]}");
             OnScoreChange?.Invoke(playerId, _scoreDictionary[playerId]);
+        }
+
+        public PlayerId GetPlayerWithHighestScore()
+        {
+            PlayerId player = PlayerId.None;
+            int score = 0;   
+
+            foreach (KeyValuePair<PlayerId, int> item in _scoreDictionary)
+            {
+                if (item.Value < score)
+                {
+                    continue;
+                }
+
+                score = item.Value;
+                player = item.Key;
+            }
+
+            return player;
         }
         #endregion
 

@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 1298284603}
   - component: {fileID: 1298284602}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: HUDCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1426,6 +1426,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c8ac161bc6621488254bfc8ba5ecb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startText: {fileID: 1691557132}
+  _winnerText: {fileID: 0}
+  _player1ScoreText: {fileID: 0}
+  _player2ScoreText: {fileID: 0}
+  _startTextBlinkTime: 0.3
 --- !u!1 &1820350087
 GameObject:
   m_ObjectHideFlags: 0

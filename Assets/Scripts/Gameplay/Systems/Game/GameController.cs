@@ -75,8 +75,6 @@ namespace Gameplay.Systems.Game
         private void HandleGoal(PlayerId zoneId)
         {
             _ball.SetBallPosition(_ballStartPos.position);
-            _gameModel.SetGameStatus(GameStatus.Stopped);
-
             PlayerId goalMaker = zoneId == PlayerId.Player1 ? PlayerId.Player2 : PlayerId.Player1;
             _gameModel.AddScore(goalMaker);
             
@@ -95,6 +93,7 @@ namespace Gameplay.Systems.Game
                     _gameView.SetStartTextBlinkingState(false);
                     break;
                 case GameStatus.Ended:
+                    _gameView.SetWinnerText(_gameModel.GetPlayerWithHighestScore());
                     break;
                 case GameStatus.Paused:
                     break;
@@ -107,8 +106,12 @@ namespace Gameplay.Systems.Game
         {
             // Logic for giving points and winning condition check 
             if (score >= _gameModel.maxScore)
+            {                
+                _gameModel.SetGameStatus(GameStatus.Ended);
+            }
+            else
             {
-                Debug.Log($"{playerId} wins!");
+                _gameModel.SetGameStatus(GameStatus.Stopped);
             }
         }
 
