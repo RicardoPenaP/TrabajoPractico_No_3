@@ -104,6 +104,7 @@ namespace Gameplay.Systems.Game
 
         private void HandleScoreChange(PlayerId playerId, int score)
         {
+            _gameView.SetPlayerScoreText(playerId, score);
             // Logic for giving points and winning condition check 
             if (score >= _gameModel.maxScore)
             {                

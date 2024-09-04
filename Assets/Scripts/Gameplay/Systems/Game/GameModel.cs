@@ -53,8 +53,7 @@ namespace Gameplay.Systems.Game
                 return;
             }
 
-            _scoreDictionary[playerId] += Mathf.Abs(points);
-            Debug.Log($"{playerId} => { _scoreDictionary[playerId]}");
+            _scoreDictionary[playerId] += Mathf.Abs(points);           
             OnScoreChange?.Invoke(playerId, _scoreDictionary[playerId]);
         }
 

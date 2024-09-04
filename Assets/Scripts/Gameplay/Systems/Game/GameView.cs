@@ -58,6 +58,21 @@ namespace Gameplay.Systems.Game
             _winnerText.text = $"Player {(int)winner} wins";
             _winnerText.gameObject.SetActive(true);
         }
+
+        public void SetPlayerScoreText(PlayerId playerId,int score)
+        {
+            switch (playerId)
+            {               
+                case PlayerId.Player1:
+                    _player1ScoreText.text = score.ToString();
+                    break;
+                case PlayerId.Player2:
+                    _player2ScoreText.text = score.ToString();
+                    break;
+                default:
+                    break;
+            }
+        }
         #endregion
 
         #region Private Methods
