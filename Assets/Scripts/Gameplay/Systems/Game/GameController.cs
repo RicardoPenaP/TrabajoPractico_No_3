@@ -53,7 +53,7 @@ namespace Gameplay.Systems.Game
             _gameModel.OnGameStatusChange += GameModel_OnGameStatusChange;
             _gameModel.OnScoreChange += GameModel_OnScoreChange;
 
-            _ball.OnBallCollidesWithGoalZone += CurrentBall_OnBallCollidesWithGoalZone;
+            _ball.OnBallCollidesWithGoalZone += CurrentBall_OnBallCollidesWithGoalZone;            
         }
 
         private void UpdateGameInput()
@@ -83,8 +83,24 @@ namespace Gameplay.Systems.Game
         }
 
         private void HandleGameStatusChange(GameStatus newStatus)
-        {
-            
+        {            
+            switch (newStatus)
+            {
+                case GameStatus.None:
+                    break;
+                case GameStatus.Stopped:
+                    _gameView.SetStartTextBlinkingState(true);
+                    break;
+                case GameStatus.Started:
+                    _gameView.SetStartTextBlinkingState(false);
+                    break;
+                case GameStatus.Ended:
+                    break;
+                case GameStatus.Paused:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void HandleScoreChange(PlayerId playerId, int score)
